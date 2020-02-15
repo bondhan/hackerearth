@@ -147,17 +147,34 @@ var (
 )
 
 // GetDepthHeight ...
+// func (s *SearchTreeData) GetDepthHeight() int {
+// 	if s == nil {
+// 		return -1
+// 	}
+
+// 	left := s.left.GetDepthHeight()
+// 	right := s.right.GetDepthHeight()
+
+// 	if left > right {
+// 		return left + 1
+// 	}
+
+// 	return right + 1
+// }
+
+func max(a int, b int) int {
+	if a >= b {
+		return a
+	}
+
+	return b
+}
+
+// GetDepthHeight ...
 func (s *SearchTreeData) GetDepthHeight() int {
 	if s == nil {
 		return -1
 	}
 
-	left := s.left.GetDepthHeight()
-	right := s.right.GetDepthHeight()
-
-	if left > right {
-		return left + 1
-	}
-
-	return right + 1
+	return 1 + max(s.left.GetDepthHeight(), s.right.GetDepthHeight())
 }
