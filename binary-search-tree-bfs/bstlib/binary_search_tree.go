@@ -1,6 +1,8 @@
 package bstlib
 
-import "container/list"
+import (
+	"container/list"
+)
 
 // SearchTreeData ...
 type SearchTreeData struct {
@@ -136,4 +138,26 @@ func (s *SearchTreeData) IsValid(min int, max int) bool {
 	}
 
 	return s.left.IsValid(min, s.data) && s.right.IsValid(s.data, max)
+}
+
+// GetDepthHeight ...
+var (
+	Max     int
+	Counter int
+)
+
+// GetDepthHeight ...
+func (s *SearchTreeData) GetDepthHeight() int {
+	if s == nil {
+		return -1
+	}
+
+	left := s.left.GetDepthHeight()
+	right := s.right.GetDepthHeight()
+
+	if left > right {
+		return left + 1
+	}
+
+	return right + 1
 }

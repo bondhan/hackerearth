@@ -24,4 +24,5 @@ func main() {
 
 	fmt.Println("is valid bst:", bst.IsValid(b.MIN_NUM, b.MAX_NUM))
 
+	fmt.Println("depth=", bst.GetDepthHeight())
 }
