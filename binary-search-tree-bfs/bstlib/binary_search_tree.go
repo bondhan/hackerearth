@@ -121,3 +121,19 @@ func (s *SearchTreeData) MapStringBst() []int {
 
 	return res
 }
+
+const MIN_NUM = -99999
+const MAX_NUM = 99999
+
+// IsValid ...
+func (s *SearchTreeData) IsValid(min int, max int) bool {
+	if s == nil {
+		return true
+	}
+
+	if s.data < min || s.data > max {
+		return false
+	}
+
+	return s.left.IsValid(min, s.data) && s.right.IsValid(s.data, max)
+}

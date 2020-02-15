@@ -22,4 +22,6 @@ func main() {
 	resBst := bst.MapStringBst()
 	fmt.Println(resBst) //[5 1 11 0 3 6 2 4 8 7 10 9 11]
 
+	fmt.Println("is valid bst:", bst.IsValid(b.MIN_NUM, b.MAX_NUM))
+
 }
